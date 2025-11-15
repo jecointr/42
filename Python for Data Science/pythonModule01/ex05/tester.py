@@ -3,12 +3,14 @@ from load_image import ft_load
 from pimp_image import ft_invert, ft_red, ft_green, ft_blue, ft_grey
 import matplotlib.pyplot as plt
 
+
 def display_image(img_array, title="Image"):
     """Affiche l'image avec matplotlib"""
     plt.imshow(img_array)
     plt.title(title)
     plt.axis('off')
     plt.show()
+
 
 def main():
     try:
@@ -38,6 +40,6 @@ def main():
     except ValueError as e:
         print(f"Error: {e}")
 
+
 if __name__ == "__main__":
     main()
-

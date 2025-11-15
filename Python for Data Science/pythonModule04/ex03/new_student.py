@@ -12,7 +12,7 @@ def generate_id() -> str:
 class Student:
     """
     Dataclass representing a student.
-    
+
     Attributes:
         name: Student's first name
         surname: Student's surname
@@ -25,7 +25,7 @@ class Student:
     active: bool = True
     login: str = field(init=False)
     id: str = field(init=False)
-    
+
     def __post_init__(self):
         """Initialize login and id after object creation."""
         self.login = (self.name[0] + self.surname).capitalize()

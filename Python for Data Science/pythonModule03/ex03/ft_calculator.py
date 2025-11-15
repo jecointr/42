@@ -25,11 +25,13 @@ class calculator:
         return self.vector
 
     def __truediv__(self, scalar: float) -> list[float]:
-        """Divise chaque élément du vecteur par un scalaire, protège contre la division par zéro."""
+        """
+        Divise chaque élément du vecteur par un scalaire.
+        Protège contre la division par zéro.
+        """
         if scalar == 0:
             print("Erreur : division par zéro")
             return self.vector
         self.vector = [v / scalar for v in self.vector]
         print(self.vector)
         return self.vector
-

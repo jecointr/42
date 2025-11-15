@@ -1,12 +1,13 @@
 import pandas as pd
 
+
 def load(path: str) -> pd.DataFrame:
     """
     Charge un fichier CSV en DataFrame pandas.
-    
+
     Args:
         path (str): Chemin vers le fichier CSV.
-    
+
     Returns:
         pd.DataFrame: Le dataset chargé, ou None si une erreur survient.
     """
@@ -24,11 +25,12 @@ def load(path: str) -> pd.DataFrame:
         print(f"Unexpected error: {e}")
         return None
 
+
 def main():
     df = load("../data/life_expectancy_years.csv")
     if df is not None:
         print(df.head())
 
+
 if __name__ == "__main__":
     main()
-

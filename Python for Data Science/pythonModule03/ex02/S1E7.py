@@ -1,11 +1,15 @@
 # S1E7.py
 from S1E9 import Character
 
+
 class Baratheon(Character):
     """Classe représentant la famille Baratheon."""
 
     def __init__(self, first_name: str, is_alive: bool = True):
-        """Initialise un Baratheon avec prénom, état de vie et caractéristiques."""
+        """
+        Initialise un Baratheon avec prénom, état de vie
+        et caractéristiques.
+        """
         self.first_name = first_name
         self.is_alive = is_alive
         self.family_name = "Baratheon"
@@ -28,7 +32,10 @@ class Lannister(Character):
     """Classe représentant la famille Lannister."""
 
     def __init__(self, first_name: str, is_alive: bool = True):
-        """Initialise un Lannister avec prénom, état de vie et caractéristiques."""
+        """
+        Initialise un Lannister avec prénom, état de vie
+        et caractéristiques.
+        """
         self.first_name = first_name
         self.is_alive = is_alive
         self.family_name = "Lannister"
@@ -50,4 +57,3 @@ class Lannister(Character):
     def create_lannister(cls, first_name: str, is_alive: bool = True):
         """Crée un Lannister en chaîne."""
         return cls(first_name, is_alive)
-

@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 from load_csv import load
 
+
 def parse_number(value):
     """Convertit une valeur type '29M', '540k', '1.2B' en float."""
     if value is None:
@@ -22,6 +23,7 @@ def parse_number(value):
 
     return float(value)
 
+
 def draw_projection(df_gdp, df_life, year):
     """
     Affiche projection PIB vs espérance de vie pour une année donnée.
@@ -39,7 +41,11 @@ def draw_projection(df_gdp, df_life, year):
     life_values = [parse_number(v) for v in df_life[col]]
 
     # Filtrer les valeurs valides
-    filtered = [(gdp, life) for gdp, life in zip(gdp_values, life_values) if gdp is not None and life is not None]
+    filtered = [
+        (gdp, life)
+        for gdp, life in zip(gdp_values, life_values)
+        if gdp is not None and life is not None
+    ]
     if not filtered:
         print("No valid data to plot.")
         return
@@ -55,6 +61,7 @@ def draw_projection(df_gdp, df_life, year):
     plt.tight_layout()
     plt.show()
 
+
 def main():
     df_gdp = load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
     df_life = load("life_expectancy_years.csv")
@@ -63,6 +70,6 @@ def main():
 
     draw_projection(df_gdp, df_life, 1900)
 
+
 if __name__ == "__main__":
     main()
-

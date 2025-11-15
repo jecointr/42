@@ -52,4 +52,3 @@ class calculator:
         result = [float(v1 - v2) for v1, v2 in zip(V1, V2)]
         print(f"Sous Vector is: {result}")
         return result
-

@@ -11,21 +11,21 @@ def pow(x: int | float) -> int | float:
 def outer(x: int | float, function) -> object:
     """
     Return a closure that applies function repeatedly on the result.
-    
+
     Args:
         x: Initial value
         function: Function to apply (square or pow)
-    
+
     Returns:
         A callable object (inner function) that applies the function
         on the previous result each time it's called
     """
     count = 0
-    
+
     def inner() -> float:
         nonlocal count, x
         count += 1
         x = function(x)
         return x
-    
+
     return inner

@@ -3,7 +3,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 from load_image import ft_load
 
-def zoom_image(img_array: np.ndarray, x_start: int, y_start: int, width: int, height: int) -> np.ndarray:
+
+def zoom_image(
+    img_array: np.ndarray,
+    x_start: int,
+    y_start: int,
+    width: int,
+    height: int
+) -> np.ndarray:
+
     """
     Crop a portion of the image (zoom) and return a single channel (red) image.
     """
@@ -11,12 +19,19 @@ def zoom_image(img_array: np.ndarray, x_start: int, y_start: int, width: int, he
     if C != 3:
         raise ValueError("Input image must have 3 channels (RGB)")
 
-    if x_start < 0 or y_start < 0 or x_start + width > W or y_start + height > H:
+    if (
+        x_start < 0
+        or y_start < 0
+        or x_start + width > W
+        or y_start + height > H
+    ):
+
         raise ValueError("Zoom area is out of image bounds")
 
     cropped = img_array[y_start:y_start+height, x_start:x_start+width, :]
     red_channel = cropped[:, :, 0][:, :, np.newaxis]  # (height, width, 1)
     return red_channel
+
 
 def transpose_manual(img_array: np.ndarray) -> np.ndarray:
     """
@@ -33,6 +48,7 @@ def transpose_manual(img_array: np.ndarray) -> np.ndarray:
             transposed[j, i] = img_array_2d[i, j]
     return transposed
 
+
 def display_image(img_array: np.ndarray, title="Image"):
     """Display a 2D image with matplotlib."""
     plt.imshow(img_array, cmap='gray')
@@ -40,6 +56,7 @@ def display_image(img_array: np.ndarray, title="Image"):
     plt.xlabel("X axis")
     plt.ylabel("Y axis")
     plt.show()
+
 
 def main():
     try:
@@ -50,10 +67,20 @@ def main():
         zoom_size = 400
         x_start = max((W - zoom_size) // 2, 0)
         y_start = max((H - zoom_size) // 2, 0)
-        zoomed_img = zoom_image(img_array, x_start, y_start, zoom_size, zoom_size)
+        zoomed_img = zoom_image(
+            img_array,
+            x_start,
+            y_start,
+            zoom_size,
+            zoom_size,
+        )
 
         # Affichage terminal
-        print(f"The shape of image is: {zoomed_img.shape} or ({zoomed_img.shape[0]}, {zoomed_img.shape[1]})")
+        print(
+            "The shape of image is: "
+            f"{zoomed_img.shape} or "
+            f"({zoomed_img.shape[0]}, {zoomed_img.shape[1]})"
+        )
         print(zoomed_img)
 
         # Transpose manuel
@@ -67,6 +94,6 @@ def main():
     except ValueError as e:
         print(f"Error: {e}")
 
+
 if __name__ == "__main__":
     main()
-

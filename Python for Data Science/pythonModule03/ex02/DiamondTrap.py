@@ -1,12 +1,20 @@
 # DiamondTrap.py
 from S1E7 import Baratheon, Lannister
 
+
 class King(Baratheon, Lannister):
-    """Classe représentant un roi combinant les caractéristiques des familles Baratheon et Lannister."""
+    """
+    Classe représentant un roi combinant les caractéristiques
+    des familles Baratheon et Lannister.
+    """
 
     def __init__(self, first_name: str, is_alive: bool = True):
-        """Initialise le roi avec prénom, état de vie et caractéristiques héritées."""
-        # On appelle le constructeur de Baratheon (le premier parent dans l'ordre MRO)
+        """
+        Initialise le roi avec prénom, état de vie et caractéristiques
+        héritées.
+        """
+        # On appelle le constructeur de Baratheon
+        # (le premier parent dans l'ordre MRO)
         Baratheon.__init__(self, first_name, is_alive)
 
     # Properties pour les yeux
@@ -26,4 +34,3 @@ class King(Baratheon, Lannister):
     def set_hairs(self, color: str):
         """Change la couleur des cheveux."""
         self.hairs = color
-
